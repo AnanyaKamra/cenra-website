@@ -8,7 +8,7 @@ or the history every time. Read it before touching anything.
 
 Cenra Studios is Ananya Kamra's AI/brand design studio (Delhi). This repo is
 the live site at **cenrastudios.com**, deployed on **Vercel**, auto-deploying
-from **github.com/AnanyaKamra/cenra-website** on every push to `main`.
+from **github.com/AnanyaKamra/cenra-website** on every push to `master`.
 
 Core thesis: designing trust and clarity into AI products, and protecting
 brands from going generic. Manifesto line used on-site: *"Competence is now
