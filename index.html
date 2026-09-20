@@ -41,28 +41,16 @@ body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;ove
   -webkit-backdrop-filter:blur(16px) saturate(1.35);backdrop-filter:blur(16px) saturate(1.35);
   border:1px solid rgba(245,241,232,0.16);box-shadow:0 16px 54px rgba(0,0,0,0.34)}
 /* colour: Section I now runs on the dark Warp Ink shader, so links stay light at the top and inside the glass */
-.topbar .mark{color:var(--light)}.topbar .mark .d{color:var(--cobalt-bright)}
-.topbar .nav-center a{color:var(--light)}
-.topbar .nav-cta{color:var(--light)}
-.nav-center{justify-self:center;display:flex;gap:30px;align-items:center}
-.nav-left{justify-self:start}
-.nav-right{justify-self:end}
-.topbar .mark{font-family:'Fraunces',serif;font-weight:400;font-size:21px;letter-spacing:-0.01em;color:var(--light);overflow:hidden;display:inline-block;line-height:1.15;padding-bottom:0.12em;margin-bottom:-0.12em;transition:color .5s var(--ease)}
-.topbar .mark .wi{display:inline-flex;align-items:baseline;transform:none}
-.js .topbar .mark .wi{transform:translateY(118%)}
-.topbar .mark .d{color:var(--cobalt-bright);margin-left:1px;transition:color .5s var(--ease)}
-.nav-center a{position:relative;font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--light);text-decoration:none;overflow:hidden;display:inline-block;line-height:1;padding:6px 11px}
-.nav-center a::before{content:"";position:absolute;inset:0;background:var(--cobalt);transform:scaleX(0);transform-origin:left;transition:transform .42s var(--ease);z-index:0}
-.nav-center a:not(:hover)::before{transform-origin:right}
-.nav-center a:hover::before{transform:scaleX(1)}
-.nav-center a .wi{position:relative;z-index:1;display:inline-block;transform:none;opacity:0.92;transition:opacity .3s var(--ease),color .3s var(--ease)}
-.js .nav-center a .wi{transform:translateY(118%)}
-.nav-center a:hover .wi{opacity:1;color:var(--cream)}
-.nav-cta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:var(--light);text-decoration:none;display:inline-flex;align-items:center;gap:0;padding:9px 18px;border:1px solid currentColor;border-radius:999px;position:relative;overflow:hidden;isolation:isolate;opacity:1;transition:color .5s var(--ease),border-color .5s var(--ease)}
-.js .nav-cta{opacity:0;transform:translateY(-10px)}
-.nav-cta::before{content:"";position:absolute;inset:0;background:var(--cobalt-bright);transform:scaleX(0);transform-origin:left center;transition:transform .5s var(--ease);z-index:1}
-.nav-cta .lbl{position:relative;z-index:2;transition:color .5s var(--ease)}
-.nav-cta .arrow{position:relative;z-index:2;display:inline-flex;max-width:0;margin-left:0;opacity:0;overflow:hidden;transform:translateX(12px);transition:max-width .5s var(--ease),margin-left .5s var(--ease),opacity .4s var(--ease),transform .5s var(--ease),color .5s var(--ease)}
+.mark{font-family:'Fraunces',serif;font-weight:300;font-size:21px;letter-spacing:-0.01em;color:var(--light);text-decoration:none}.mark .d{color:var(--cobalt-bright)}
+.nav-center{justify-self:center;display:flex;gap:28px;align-items:center}
+.nav-center a{color:var(--light)}
+.roll{display:inline-block;overflow:hidden;vertical-align:bottom;line-height:1.15;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none}
+.roll .ri{display:block;transition:transform .5s var(--ease)}.roll .ri b{display:block;font-weight:inherit}.roll .ri b:last-child{color:var(--cobalt-bright)}.roll:hover .ri{transform:translateY(-50%)}
+.nav-cta{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:var(--light);text-decoration:none;display:inline-flex;align-items:center;padding:9px 18px;border:1px solid currentColor;border-radius:999px;position:relative;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s;justify-self:end}
+.nav-cta::before{content:"";position:absolute;inset:0;background:var(--cobalt-bright);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);z-index:1}
+.nav-cta .lbl{position:relative;z-index:2;transition:color .5s}
+.nav-cta .arrow{position:relative;z-index:2;display:inline-flex;max-width:0;opacity:0;overflow:hidden;transform:translateX(12px);transition:max-width .5s var(--ease),opacity .4s,transform .5s var(--ease),color .5s,margin-left .5s}
+.nav-cta .arr{width:15px;display:block}
 .nav-cta:hover{color:var(--pitch);border-color:var(--cobalt-bright)}
 .nav-cta:hover::before{transform:scaleX(1)}
 .nav-cta:hover .lbl{color:var(--pitch)}
@@ -495,9 +483,6 @@ html.loading,html.loading body{overflow:hidden}
   .loader,.curtain{display:none!important}
   .js .word-inner{transform:none}
   .hero-kicker .rule{transform:scaleX(1)}
-  .js .topbar .mark .wi{transform:none}
-  .js .nav-center a .wi{transform:none}
-  .js .nav-cta{opacity:1;transform:none}
 }
 
 /* ===== CENRA FIGURES — reusable illustration library (drawn-by-system, cobalt-charged) ===== */
@@ -635,17 +620,13 @@ html.loading,html.loading body{overflow:hidden}
   <clipPath id="navArc" clipPathUnits="objectBoundingBox"><path d="M0,0 L1,0 L1,1 Q0.5,0.5 0,1 Z"/></clipPath>
 </defs></svg>
 <header class="topbar">
-  <div class="nav-left">
-    <div class="mark" id="navLogo"><span class="wi">Cenra<span class="d">.</span></span></div>
-  </div>
+  <a href="index.html" class="mark">Cenra<span class="d">.</span></a>
   <nav class="nav-center">
-    <a href="#work" data-hover><span class="wi">Work</span></a>
-    <a href="#patterns" data-hover><span class="wi">Patterns</span></a>
-    <a href="#writing" data-hover><span class="wi">Approach</span></a>
+    <a href="#work" class="roll" data-hover><span class="ri"><b>Work</b><b>Work</b></span></a>
+    <a href="#patterns" class="roll" data-hover><span class="ri"><b>Patterns</b><b>Patterns</b></span></a>
+    <a href="#writing" class="roll" data-hover><span class="ri"><b>Approach</b><b>Approach</b></span></a>
   </nav>
-  <div class="nav-right">
-    <a href="#contact" class="nav-cta" id="navCta" data-hover><span class="lbl">Inquire</span><span class="arrow"><svg class="arr" viewBox="0 0 22 12" fill="none" aria-hidden="true"><path d="M1 6H19M14 1.5L19.5 6 14 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-  </div>
+  <a href="#contact" class="nav-cta" data-hover><span class="lbl">Inquire</span><span class="arrow"><svg class="arr" viewBox="0 0 22 12" fill="none" aria-hidden="true"><path d="M1 6H19M14 1.5L19.5 6 14 10.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </header>
 
 <section class="hero">
@@ -1166,26 +1147,9 @@ html.loading,html.loading body{overflow:hidden}
     gsap.set(['#heroLabel','#heroSub','#heroCtas','#heroScroll','#heroIndexN'],{opacity:1,y:0});
   }
 
-  /* ---------- nav launch: items stagger in, logo + CTA alongside (after the loader, with the hero) ---------- */
-  var navPlayed=false;
-  function playNav(){
-    if(navPlayed)return; navPlayed=true;
-    gsap.set('#navLogo .wi',{y:'118%'});
-    gsap.set('.nav-center a .wi',{y:'118%'});
-    gsap.set('#navCta',{opacity:0,y:-10});
-    var tl=gsap.timeline({defaults:{ease:'expo.out'}});
-    /* the nav items launch first, one after another */
-    tl.to('.nav-center a .wi',{y:'0%',duration:0.7,stagger:0.085},0.0);
-    /* the logo on the left, alongside */
-    tl.to('#navLogo .wi',{y:'0%',duration:0.75},0.04);
-    /* the button at the top right, landing as the items finish */
-    tl.to('#navCta',{opacity:1,y:0,duration:0.7},0.34);
-  }
-  function navInstant(){
-    navPlayed=true;
-    gsap.set(['#navLogo .wi','.nav-center a .wi'],{y:'0%'});
-    gsap.set('#navCta',{opacity:1,y:0});
-  }
+  /* ---------- nav: static and always visible from load, matching the project-page convention ---------- */
+  function playNav(){}
+  function navInstant(){}
 
   /* ---------- opening loader: draw · pulse · reveal, handing off into the hero ---------- */
   (function(){
